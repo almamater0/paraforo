@@ -1,0 +1,40 @@
+{% extends "almamater0/base.html" %}
+{% block header %}
+{{block.super}}
+{%endblock%}
+
+{% block content %}
+{% load static %}
+{% load spirit_tags i18n %}
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="description" content="{{ config.site_description }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="{% static "spirit/stylesheets/styles.all.min.css" %}">
+
+  <script src="{% static "spirit/scripts/all.min.js" %}"></script>
+
+
+  {% block head-extra %}{% endblock %}
+
+  <!--[if (lt IE 9) & (!IEMobile)]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6/html5shiv.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+</body>
+
+</html>
+{% endblock %}
+{% render_messages messages %}
+{% block footer %}{{block.super}}
+{% endblock %}

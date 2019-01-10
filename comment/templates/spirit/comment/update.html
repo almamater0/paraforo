@@ -1,0 +1,22 @@
+{% extends "spirit/_base.html" %}
+
+{% load i18n %}
+
+{% block title %}{% trans "Editar comentario" %}{% endblock %}
+
+{% block content %}
+
+  <h1 class="headline">{% trans "Editar comentario" %}</h1>
+
+  <form action="." method="post" class="js-reply">
+    {% csrf_token %}
+    {% include "spirit/_form.html" %}
+
+    <div class="container">
+      {% include "spirit/comment/_editor.html" %}
+
+      <button class="genric-btn primary" type="submit">Publicar</button>
+    </div>
+  </form>
+
+{% endblock %}

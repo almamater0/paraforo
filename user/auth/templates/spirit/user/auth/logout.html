@@ -1,0 +1,32 @@
+{% extends "spirit/_base.html" %}
+
+{% load i18n %}
+
+{% block title %}{% trans "Log out" %}{% endblock %}
+
+{% block content %}
+<section class="banner-area relative about-banner" id="home" style="background-image: url('/static/principal/images/preguntas.jpg')">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content2 col-lg-12">
+                <h1 class="text-white">
+                </h1><br>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+<div class="container" style="margin: 50px; position: relative; left: 15%;">
+  <h1 class="headline">{% trans "¿Seguro que quieres cerrar sesión?" %}</h1>
+
+  <div class="logout">
+    <form action="." method="post">
+      {% csrf_token %}
+
+      <button class="genric-btn primary" style="margin-top: 20px" type="submit" name="post">Cerrar sesión</button>
+    </form>
+  </div>
+</div>
+</section>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% load i18n %}
+
+{% if notification %}
+  <form method="post" action="{% url "spirit:topic:notification:update" notification.pk %}">
+{% else %}
+  <form method="post" action="{% url "spirit:topic:notification:create" topic_id %}">
+{% endif %}
+{% csrf_token %}
+{% include "spirit/_form.html" %}
+
+{% if notification.is_active %}
+  <button class="genric-btn primary" type="submit">Dejar de notificarme</button>
+{% else %}
+<button class="genric-btn primary" type="submit">Notificadme</button>
+{% endif %}
+</form>

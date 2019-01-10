@@ -1,0 +1,43 @@
+{% extends "spirit/_base.html" %}
+
+{% load i18n %}
+
+{% block title %}{% trans "Login" %}{% endblock %}
+
+{% block content %}
+<section class="banner-area relative about-banner" id="home" style="background-image: url('/static/principal/images/preguntas.jpg')">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content2 col-lg-12">
+                <h1 class="text-white">
+                    ¡Bienvenid@!
+                </h1><br>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+<div class="container" style="margin: 50px; position: relative; left: 15%;">
+  <h1 class="headline" style="margin: 10px">{% trans "Iniciar sesión" %}</h1>
+
+  <div class="login">
+    <form action="." method="post" style="margin-left: 10px">
+      {% csrf_token %}
+      {% include "spirit/_form.html" %}
+
+      <button class="genric-btn primary" style="margin: 10px" type="submit" name="post">Iniciar sesión</button>
+    </form>
+  </div>
+
+  <div class="login-links" style="margin: 10px">
+    <a class="login-link nocolor" href="{% url "spirit:user:auth:register" %}"
+    >¿No tienes cuenta todavía? <span style="text-decoration: underline">Créala</span></a> <br>
+    <a class="login-link nocolor" href="{% url "spirit:user:auth:password-reset" %}"
+    >{% trans "No recuerdo la contraseña" %}</a> <br>
+    <a class="login-link nocolor" href="{% url "spirit:user:auth:resend-activation" %}"
+    >{% trans "Volver a enviar el correo de activación" %}</a> <br>
+  </div>
+</div>
+</section>
+{% endblock %}

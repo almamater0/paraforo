@@ -1,0 +1,53 @@
+{% extends "spirit/_base.html" %}
+
+{% load spirit_tags i18n %}
+
+{% block title %}{% trans "Publish topic" %}{% endblock %}
+
+{% block head-extra %}
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      stModules.store(
+        document.querySelector('textarea'),
+        'topic_publish_comment'
+      );
+    });
+  </script>
+{% endblock %}
+
+{% block content %}
+<section class="banner-area relative about-banner" id="home" style="background-image: url('/static/principal/images/preguntas.jpg')">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content2 col-lg-12">
+                <h1 class="text-white">
+                </h1><br>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+<div class="container" style="margin: 50px; position: relative; left: 15%;">
+  <h1 class="headline">{% trans "Preguntar" %}</h1>
+
+  <form action="." method="post" class="js-reply">
+    {% csrf_token %}
+
+    {# topic #}
+    {% include "spirit/_form.html" %}
+
+    {# comment #}
+    <div class="topic-publish-comment">
+      {% include "spirit/_form.html" with form=cform %}
+    </div>
+
+    <div class="container">
+      {% include "spirit/comment/_editor.html" %}
+
+      <button class="genric-btn primary" type="submit">Publicar</button>
+    </div>
+  </form>
+</div>
+</section>
+{% endblock %}

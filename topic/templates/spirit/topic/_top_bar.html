@@ -1,0 +1,48 @@
+{% load i18n %}
+
+<div class="container" style="margin: 30px; position: relative; left: 15%;">
+  <div class="row">
+  <!--<div class="categories js-tabs-container col-lg-4">
+    {% if category %}
+      <a class="dropdown-button js-tab nocolor"
+        href="#"
+        data-related=".js-categories-content"
+      >{{ category.title }} <i class="fa fa-chevron-down"></i></a>
+    {% else %}
+      <a class="dropdown-button js-tab nocolor"
+        href="#"
+        data-related=".js-categories-content"
+      >{% trans "Todas las categorías" %} <i class="fa fa-chevron-down"></i></a>
+    {% endif %}
+
+    <div class="tab-content js-tab-content js-categories-content"> <!-- habria que cambiar solo esto, que es una lista normal y corriente
+      {% spaceless %}
+        <ul>
+          {% for c in categories %}
+            <li>
+              <a class="menu-link nocolor" href="{{ c.get_absolute_url }}" >{{ c.title }}</a>
+            </li>
+          {% endfor %}
+          {% if category.parent %}
+            <li>
+              <a class="menu-link nocolor" href="{{ category.parent.get_absolute_url }}">{% trans "Todas las subcategorías" %}</a>
+            </li>
+          {% else %}
+            <li>
+              <a class="menu-link nocolor" href="{% url "spirit:topic:index-active" %}">{% trans "Todas las categorías" %}</a>
+            </li>
+          {% endif %}
+        </ul>
+      {% endspaceless %}
+    </div>
+  </div> -->
+
+  <div class="new-topic col-lg-8" style="position: relative; top: 20px">
+    {% if category %}
+      <a class="genric-btn primary" href="{% url "spirit:topic:publish" category.pk %}">{% trans "Preguntar" %}</a>
+    {% else %}
+      <a class="genric-btn primary" href="/topic/publish">{% trans "Preguntar" %}</a>
+    {% endif %} <!-- en este href habia spirit:topic:publish pero me dirigia a forum/topic/publish que no existe-->
+  </div>
+  </div>
+</div>

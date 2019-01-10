@@ -1,0 +1,51 @@
+{% extends "spirit/_base.html" %}
+
+{% load i18n %}
+
+{% block title %}{% trans "Register" %}{% endblock %}
+
+{% block head-extra %}
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+
+      document.querySelectorAll('input[name=honeypot]')
+        .forEach(function(elm) {
+          elm.style.display = 'none';
+        });
+      document.querySelectorAll('label[for=id_honeypot]')
+        .forEach(function(elm) {
+          elm.style.display = 'none';
+        });
+
+    });
+
+  </script>
+{% endblock %}
+
+{% block content %}
+<section class="banner-area relative about-banner" id="home" style="background-image: url('/static/principal/images/preguntas.jpg')">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content2 col-lg-12">
+                <h1 class="text-white">
+                    Únete a nuestra comunidad
+                </h1><br>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+  <div class="container" style="margin: 50px; position: relative; left: 15%;">
+  <h1 class="headline">{% trans "Regístrate" %}</h1>
+
+  <form action="." method="post">
+    {% csrf_token %}
+    {% include "spirit/_form.html" %}
+    <p>Al pulsar este botón, se te mandará un link de activación a tu correo. Ábrelo y habrás activado tu cuenta.</p>
+    <button class="genric-btn primary" type="submit" name="post">Registrarse</button>
+  </form>
+  </div>
+</section>
+{% endblock %}

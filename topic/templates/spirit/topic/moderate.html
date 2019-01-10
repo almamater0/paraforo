@@ -1,0 +1,30 @@
+{% extends "spirit/_base.html" %}
+
+{% load i18n %}
+
+{% block title %}{% trans "Moderate topic" %}{% endblock %}
+
+{% block content %}
+<section class="banner-area relative about-banner" id="home" style="background-image: url('/static/principal/images/preguntas.jpg')">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content2 col-lg-12">
+                <h1 class="text-white">
+                </h1><br>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+<div class="container" style="margin: 50px; position: relative; left: 5%;">
+  <h1 class="headline">{% trans "Moderate topic" %}: {{ topic.title }}</h1>
+
+  <form action="." method="post">
+    {% csrf_token %}
+
+    <input class="button" type="submit" name="post" value="{% trans "Apply" %}" />
+  </form>
+</div>
+</section>
+{% endblock %}

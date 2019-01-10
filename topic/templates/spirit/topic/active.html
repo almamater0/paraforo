@@ -1,0 +1,29 @@
+{% extends "spirit/_base.html" %}
+
+{% load spirit_tags i18n %}
+
+
+{% block content %}
+<!DOCTYPE html>
+
+<section class="banner-area relative about-banner" id="home" style="background-image: url('/static/principal/images/preguntas.jpg')">
+  <div class="overlay overlay-bg"></div>
+  <div class="container">
+      <div class="row d-flex align-items-center justify-content-center">
+          <div class="about-content col-lg-12">
+              <h1 class="text-white">
+                  Foro: preguntas y respuestas
+              </h1><br>
+          </div>
+      </div>
+  </div>
+</section>
+<section>
+  <div class="row">
+  {% include "spirit/topic/_top_bar.html" with category=None categories=categories %} <!-- esto es lo de categories etc -->
+  {% include "spirit/topic/_render_list.html" %} <!-- esto es lo de no new topics yet -->
+  {% render_paginator topics %} <!-- topic = pregunta -->
+  </div>
+</section>
+</html>
+{% endblock %}

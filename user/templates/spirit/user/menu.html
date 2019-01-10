@@ -1,0 +1,55 @@
+{# todo: remove this, use :target on menu #}
+
+{% extends "spirit/_base.html" %}
+
+{% load i18n %}
+
+{% block title %}{% trans "User menu" %}{% endblock %}
+
+{% block content %}
+<section class="banner-area relative about-banner" id="home" style="background-image: url('/static/principal/images/preguntas.jpg')">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content2 col-lg-12">
+                <h1 class="text-white">
+                </h1><br>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+<div class="container" style="margin: 50px; position: relative; left: 15%;">
+  <h1 class="headline">{% trans "Menu" %}</h1>
+
+  {% spaceless %}
+    <ul class="menu">
+      <li>
+        <a class="menu-link"
+          href="{% url "spirit:user:detail" pk=user.pk slug=user.st.slug %}"
+        >{% trans "Perfil" %}</a>
+      </li>
+      <li>
+        <a class="menu-link" href="{% url "spirit:topic:index-active" %}">{% trans "Preguntas" %}</a>
+      </li>
+      <li>
+        <a class="menu-link" href="{% url "spirit:topic:unread:index" %}">{% trans "Preguntas no leídas" %}</a>
+      </li>
+      <!--<li>
+        <a class="menu-link" href="{% url "spirit:topic:private:index" %}">{% trans "Pregunta" %}</a>
+      </li>-->
+
+      {% if user.st.is_administrator %}
+        <li>
+          <a class="menu-link" href="{% url "spirit:admin:index" %}">{% trans "Admin" %}</a>
+        </li>
+      {% endif %}
+
+      <li>
+        <a class="menu-link js-post" href="{% url "spirit:user:auth:logout" %}">{% trans "Cerrar sesión" %}</a>
+      </li>
+    </ul>
+  {% endspaceless %}
+</div>
+</section>
+{% endblock %}
