@@ -12,7 +12,7 @@ from setuptools import setup, find_packages
 BASE_DIR = os.path.join(os.path.dirname(__file__))
 
 
-VERSION = __import__('spirit').__version__
+VERSION = '1.0'
 
 with io.open(os.path.join(BASE_DIR, 'requirements.txt'), encoding='utf-8') as fh:
     REQUIREMENTS = fh.read()
