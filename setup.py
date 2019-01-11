@@ -11,8 +11,6 @@ from setuptools import setup, find_packages
 
 BASE_DIR = os.path.join(os.path.dirname(__file__))
 
-with io.open(os.path.join(BASE_DIR, 'README.md'), encoding='utf-8') as f:
-    README = f.read()
 
 VERSION = __import__('spirit').__version__
 
@@ -30,13 +28,8 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 setup(
     name='django-spirit',
     version=VERSION,
-    description='Spirit is a Python based forum powered by Django.',
-    author='Esteban Castro Borsani',
-    author_email='ecastroborsani@gmail.com',
-    long_description=README,
-    url='http://spirit-project.com/',
     packages=find_packages(),
-    test_suite="runtests.start",
+    #test_suite="runtests.start",
     entry_points="""
 [console_scripts]
 spirit=spirit.extra.bin.spirit:main
