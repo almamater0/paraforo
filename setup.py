@@ -26,7 +26,7 @@ else:  # Linux?
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
-    name='django-spirit',
+    name='spirit',
     version=VERSION,
     packages=find_packages(),
     #test_suite="runtests.start",
